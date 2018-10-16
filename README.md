@@ -1,6 +1,5 @@
-A library for Dart developers.
+An example memoize function implementation in Dart. 
 
-Created from templates made available by Stagehand under a BSD-style
 [license](https://github.com/dart-lang/stagehand/blob/master/LICENSE).
 
 ## Usage
@@ -11,12 +10,12 @@ A simple usage example:
 import 'package:memoize/memoize.dart';
 
 main() {
-  var awesome = new Awesome();
+  var uniqueId = 0;
+  final generate = (String prefix) => ++uniqueId;
+  final memoizedCalc = memoize(generate);
+  var val1 = memoizedCalc('item');
+  var val2 = memoizedCalc('item');
+  print('equal: ${val1 == val2}'); // will be true
 }
+
 ```
-
-## Features and bugs
-
-Please file feature requests and bugs at the [issue tracker][tracker].
-
-[tracker]: http://example.com/issues/replaceme
